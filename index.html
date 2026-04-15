@@ -251,7 +251,7 @@
       ];
 
       const resources = [
-        { type: 'Infografía', title: 'Mapa global de regulación en IA', desc: 'Un recorrido visual por las leyes y marcos éticos en más de 30 países.', icon: 'map', read: '5 min' },
+        { type: 'Infografía', title: 'Mapa global de regulación en IA', desc: 'Un recorrido visual por las leyes y marcos éticos en más de 30 países.', icon: 'map', read: '5 min', href: 'resources/mapa-global-regulacion-ia.html' },
         { type: 'Podcast', title: 'Voces de la ética algorítmica', desc: 'Entrevistas con investigadores líderes sobre sesgo, equidad y transparencia.', icon: 'headphones', read: '45 min' },
         { type: 'Guía práctica', title: 'Auditoría ética de modelos de ML', desc: 'Herramientas y frameworks para evaluar el impacto ético de tus modelos.', icon: 'clipboard-check', read: '20 min' }
       ];
@@ -279,7 +279,8 @@
 
       const rGrid = document.getElementById('resources-grid');
       resources.forEach((r, i) => {
-        const card = document.createElement('div');
+        const card = document.createElement(r.href ? 'a' : 'div');
+        if (r.href) card.href = r.href;
         card.className = 'card-hover rounded-2xl p-6 flex flex-col fade-up stagger-' + Math.min(i + 1, 6);
         card.style.background = '#FFFFFF';
         card.innerHTML = `
@@ -292,6 +293,7 @@
           </div>
           <h3 class="font-bold text-base mb-2 leading-snug" style="font-family:'Fraunces',serif;">${r.title}</h3>
           <p class="text-sm leading-relaxed flex-1" style="color:#5A5A7A;">${r.desc}</p>
+          ${r.href ? '<span class="mt-4 inline-flex items-center gap-1 text-xs font-semibold" style="color:#0D5C63;">Ver infografía <i data-lucide="arrow-up-right" style="width:13px;height:13px;"></i></span>' : ''}
         `;
         rGrid.appendChild(card);
       });

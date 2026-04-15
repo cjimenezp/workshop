@@ -12,6 +12,8 @@ Landing page estática en español para promocionar un curso de Ética en Inteli
 │   ├── modulo-2.html
 │   ├── modulo-3.html
 │   └── modulo-4.html
+├── resources
+│   └── mapa-global-regulacion-ia.html
 ├── assets
 │   ├── css
 │   │   └── .gitkeep
