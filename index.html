@@ -260,6 +260,8 @@
       modules.forEach((m, i) => {
         const card = document.createElement('a');
         card.href = m.href;
+        card.target = '_blank';
+        card.rel = 'noopener noreferrer';
         card.className = 'card-hover rounded-2xl p-6 flex flex-col fade-up stagger-' + Math.min(i + 1, 6);
         card.style.background = '#FFFFFF';
         card.innerHTML = `
