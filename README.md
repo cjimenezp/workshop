@@ -20,7 +20,8 @@ Landing page estática en español para promocionar un curso de Ética en Inteli
 │   ├── icons
 │   │   └── .gitkeep
 │   ├── img
-│   │   └── .gitkeep
+│   │   ├── .gitkeep
+│   │   └── infografia-mapa-global-regulacion-ia.png
 │   └── js
 │       └── .gitkeep
 ├── LICENSE
@@ -34,3 +35,6 @@ python -m http.server 8000
 ```
 
 Luego abre `http://localhost:8000`.
+
+
+> Coloca el PNG exacto de la infografía en `assets/img/infografia-mapa-global-regulacion-ia.png`.
