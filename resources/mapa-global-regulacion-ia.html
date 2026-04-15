@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="es" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mapa global de regulación en IA · Ética en IA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              heading: ['Fraunces', 'Georgia', 'serif'],
+              body: ['DM Sans', 'sans-serif']
+            }
+          }
+        }
+      };
+    </script>
+  </head>
+  <body class="min-h-full" style="background-color: #fafaf7; color: #1a1a2e; font-family: 'DM Sans', sans-serif">
+    <main class="max-w-6xl mx-auto px-6 py-10 md:py-14">
+      <a
+        href="../index.html#recursos"
+        class="inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-semibold mb-8 transition hover:opacity-90"
+        style="background-color: #e8f0f0; color: #0d5c63"
+      >
+        <i data-lucide="arrow-left" style="width:16px;height:16px"></i>
+        Volver al home
+      </a>
+
+      <section class="rounded-3xl bg-white border border-black/5 shadow-sm p-6 md:p-10">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+          <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold" style="background:#e8f0f0;color:#0d5c63">
+            <i data-lucide="map" style="width:16px;height:16px"></i>
+            Infografía
+          </span>
+          <span class="inline-flex items-center gap-2 text-lg" style="color:#5a5a7a">
+            <i data-lucide="clock-3" style="width:18px;height:18px"></i> 5 min
+          </span>
+        </div>
+
+        <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-4" style="font-family: 'Fraunces', serif">Mapa global de regulación en IA</h1>
+        <p class="text-xl md:text-2xl mb-8" style="color:#4f4f69">
+          Un recorrido visual por las leyes y marcos éticos en más de 30 países.
+        </p>
+
+        <img
+          src="../Regulation Map.png"
+          alt="Infografía del mapa global de regulación en IA"
+          class="w-full rounded-2xl border border-black/5 mb-8"
+        />
+
+        <div class="grid md:grid-cols-2 gap-4 mb-8">
+          <article class="rounded-2xl p-6" style="background:#f7faf8">
+            <h2 class="text-2xl font-bold mb-3" style="font-family: 'Fraunces', serif">Unión Europea</h2>
+            <ul class="list-disc list-inside space-y-1 text-lg" style="color:#3f3f5a">
+              <li>AI Act y clasificación por riesgos</li>
+              <li>Ética y derechos humanos</li>
+            </ul>
+          </article>
+          <article class="rounded-2xl p-6" style="background:#fdf8f5">
+            <h2 class="text-2xl font-bold mb-3" style="font-family: 'Fraunces', serif">China</h2>
+            <ul class="list-disc list-inside space-y-1 text-lg" style="color:#3f3f5a">
+              <li>Control centralizado de IA</li>
+              <li>Estabilidad y seguridad</li>
+            </ul>
+          </article>
+          <article class="rounded-2xl p-6" style="background:#f7faf8">
+            <h2 class="text-2xl font-bold mb-3" style="font-family: 'Fraunces', serif">Estados Unidos</h2>
+            <ul class="list-disc list-inside space-y-1 text-lg" style="color:#3f3f5a">
+              <li>Enfoque descentralizado</li>
+              <li>Sector privado líder</li>
+            </ul>
+          </article>
+          <article class="rounded-2xl p-6" style="background:#fdf8f5">
+            <h2 class="text-2xl font-bold mb-3" style="font-family: 'Fraunces', serif">Latinoamérica</h2>
+            <ul class="list-disc list-inside space-y-1 text-lg" style="color:#3f3f5a">
+              <li>Regulación en desarrollo</li>
+              <li>Protección de datos</li>
+            </ul>
+          </article>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-4" style="font-family: 'Fraunces', serif">Comparación rápida</h2>
+        <div class="overflow-x-auto mb-8">
+          <table class="w-full text-left rounded-2xl overflow-hidden border border-black/5">
+            <thead style="background:#f3f5f4">
+              <tr>
+                <th class="p-4 text-lg">Región</th>
+                <th class="p-4 text-lg">Nivel de regulación</th>
+                <th class="p-4 text-lg">Enfoque principal</th>
+              </tr>
+            </thead>
+            <tbody class="bg-white text-lg" style="color:#30304a">
+              <tr class="border-t border-black/5"><td class="p-4">Unión Europea</td><td class="p-4">Alto</td><td class="p-4">Derechos y ética</td></tr>
+              <tr class="border-t border-black/5"><td class="p-4">Estados Unidos</td><td class="p-4">Medio</td><td class="p-4">Innovación y mercado</td></tr>
+              <tr class="border-t border-black/5"><td class="p-4">China</td><td class="p-4">Alto</td><td class="p-4">Control y seguridad</td></tr>
+              <tr class="border-t border-black/5"><td class="p-4">Latinoamérica</td><td class="p-4">Bajo-Medio</td><td class="p-4">Adaptación progresiva</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-3xl font-bold mb-4" style="font-family: 'Fraunces', serif">Principios comunes en regulación</h2>
+        <div class="grid sm:grid-cols-2 gap-3 text-lg" style="color:#3f3f5a">
+          <p class="inline-flex items-center gap-2"><i data-lucide="radar"></i> Transparencia algorítmica</p>
+          <p class="inline-flex items-center gap-2"><i data-lucide="shield-check"></i> Protección de datos personales</p>
+          <p class="inline-flex items-center gap-2"><i data-lucide="shield-off"></i> No discriminación</p>
+          <p class="inline-flex items-center gap-2"><i data-lucide="file-check-2"></i> Responsabilidad y trazabilidad</p>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
