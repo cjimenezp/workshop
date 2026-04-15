@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mapa global de regulación en IA</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  </head>
+  <body style="background:#f5f4f1; font-family:'DM Sans',sans-serif; color:#1b223d;">
+    <main class="max-w-[980px] mx-auto px-4 py-8 md:py-12">
+      <a href="../index.html#recursos" class="inline-flex items-center gap-2 mb-6 text-sm font-semibold" style="color:#0D5C63;">
+        ← Volver a recursos
+      </a>
+
+      <section class="rounded-[30px] bg-[#f9f8f5] border border-[#ece8df] p-3 sm:p-4 shadow-[0_12px_30px_rgba(0,0,0,0.05)]">
+        <img
+          id="infografia-img"
+          src="../Regulation Map.png"
+          alt="Infografía: Mapa global de regulación en IA"
+          class="w-full h-auto rounded-[24px]"
+        />
+        <p id="img-warning" class="hidden mt-3 text-sm text-rose-700">
+          No se encontró el PNG en <code>Regulation Map.png</code>.
+        </p>
+      </section>
+    </main>
+
+    <script>
+      const image = document.getElementById('infografia-img');
+      const warning = document.getElementById('img-warning');
+      image.addEventListener('error', () => {
+        warning.classList.remove('hidden');
+      });
+    </script>
+  </body>
+</html>
