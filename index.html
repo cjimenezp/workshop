@@ -244,10 +244,10 @@
 
     <script>
       const modules = [
-        { num: '01', title: 'Fundamentos de la Ética en IA', desc: 'Principios filosóficos y marcos éticos aplicados a sistemas inteligentes.', icon: 'book-open', tag: 'Fundamentos', color: '#0D5C63' },
-        { num: '02', title: 'Sesgo y Equidad Algorítmica', desc: 'Identificación y mitigación de sesgos en modelos de aprendizaje automático.', icon: 'scale', tag: 'Equidad', color: '#7C6B4F' },
-        { num: '03', title: 'Privacidad y Protección de Datos', desc: 'Marcos regulatorios y técnicas de preservación de la privacidad.', icon: 'shield', tag: 'Privacidad', color: '#4A6741' },
-        { num: '04', title: 'Transparencia y Explicabilidad', desc: 'Métodos para hacer comprensibles las decisiones algorítmicas.', icon: 'eye', tag: 'Transparencia', color: '#8B5E3C' }
+        { num: '01', title: 'Fundamentos de la Ética en IA', desc: 'Principios filosóficos y marcos éticos aplicados a sistemas inteligentes.', icon: 'book-open', tag: 'Fundamentos', color: '#0D5C63', href: 'modules/modulo-1.html' },
+        { num: '02', title: 'Sesgo y Equidad Algorítmica', desc: 'Identificación y mitigación de sesgos en modelos de aprendizaje automático.', icon: 'scale', tag: 'Equidad', color: '#7C6B4F', href: 'modules/modulo-2.html' },
+        { num: '03', title: 'Privacidad y Protección de Datos', desc: 'Marcos regulatorios y técnicas de preservación de la privacidad.', icon: 'shield', tag: 'Privacidad', color: '#4A6741', href: 'modules/modulo-3.html' },
+        { num: '04', title: 'Transparencia y Explicabilidad', desc: 'Métodos para hacer comprensibles las decisiones algorítmicas.', icon: 'eye', tag: 'Transparencia', color: '#8B5E3C', href: 'modules/modulo-4.html' }
       ];
 
       const resources = [
@@ -258,7 +258,8 @@
 
       const mGrid = document.getElementById('modules-grid');
       modules.forEach((m, i) => {
-        const card = document.createElement('div');
+        const card = document.createElement('a');
+        card.href = m.href;
         card.className = 'card-hover rounded-2xl p-6 flex flex-col fade-up stagger-' + Math.min(i + 1, 6);
         card.style.background = '#FFFFFF';
         card.innerHTML = `
@@ -271,6 +272,7 @@
           </div>
           <h3 class="font-bold text-base mb-2 leading-snug" style="font-family:'Fraunces',serif;">${m.title}</h3>
           <p class="text-sm leading-relaxed flex-1" style="color:#5A5A7A;">${m.desc}</p>
+          <span class="mt-4 inline-flex items-center gap-1 text-xs font-semibold" style="color:${m.color};">Ver subpágina <i data-lucide="arrow-up-right" style="width:13px;height:13px;"></i></span>
         `;
         mGrid.appendChild(card);
       });
