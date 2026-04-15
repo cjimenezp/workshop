@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="es" class="h-full">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ética en IA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              heading: ['Fraunces', 'Georgia', 'serif'],
+              body: ['DM Sans', 'sans-serif']
+            }
+          }
+        }
+      };
+    </script>
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+      .fade-up {
+        opacity: 0;
+        transform: translateY(30px);
+        animation: fadeUp 0.7s ease forwards;
+      }
+      @keyframes fadeUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .stagger-1 {
+        animation-delay: 0.1s;
+      }
+      .stagger-2 {
+        animation-delay: 0.2s;
+      }
+      .stagger-3 {
+        animation-delay: 0.3s;
+      }
+      .stagger-4 {
+        animation-delay: 0.4s;
+      }
+      .stagger-5 {
+        animation-delay: 0.5s;
+      }
+      .stagger-6 {
+        animation-delay: 0.6s;
+      }
+      .card-hover {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      }
+      .tag-pill {
+        transition: background 0.2s ease;
+      }
+      .tag-pill:hover {
+        filter: brightness(0.92);
+      }
+      .nav-scroll {
+        transition: background 0.3s ease, box-shadow 0.3s ease;
+      }
+      .marquee-track {
+        display: flex;
+        gap: 3rem;
+        animation: marquee 30s linear infinite;
+      }
+      @keyframes marquee {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+    </style>
+  </head>
+  <body class="h-full">
+    <div
+      id="app-wrapper"
+      class="w-full h-full overflow-auto"
+      style="background-color: #fafaf7; color: #1a1a2e; font-family: 'DM Sans', sans-serif"
+    >
+      <nav id="main-nav" class="nav-scroll fixed top-0 left-0 w-full z-50 bg-transparent">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center" style="background-color: #0d5c63">
+              <i data-lucide="brain" style="width: 22px; height: 22px; color: #fafaf7"></i>
+            </div>
+            <span id="nav-title" class="text-lg font-semibold tracking-tight" style="font-family: 'Fraunces', serif"
+              >Ética en IA</span
+            >
+          </div>
+          <div class="hidden md:flex items-center gap-8 text-sm font-medium" style="color: #1a1a2e">
+            <a href="#modulos" class="hover:opacity-70 transition-opacity">Módulos</a>
+            <a href="#recursos" class="hover:opacity-70 transition-opacity">Recursos</a>
+            <a href="#comunidad" class="hover:opacity-70 transition-opacity">Comunidad</a>
+            <button id="nav-cta" class="px-5 py-2.5 rounded-full text-sm font-semibold" style="background-color: #0d5c63; color: #fafaf7">
+              Inscríbete
+            </button>
+          </div>
+          <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg hover:bg-black/5 transition">
+            <i data-lucide="menu" style="width: 24px; height: 24px"></i>
+          </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-6 pt-2">
+          <div class="flex flex-col gap-4 text-sm font-medium">
+            <a href="#modulos" class="py-2 border-b border-black/10">Módulos</a>
+            <a href="#recursos" class="py-2 border-b border-black/10">Recursos</a>
+            <a href="#comunidad" class="py-2 border-b border-black/10">Comunidad</a>
+          </div>
+        </div>
+      </nav>
+
+      <header class="pt-32 pb-20 px-6">
+        <div class="max-w-5xl mx-auto text-center">
+          <div
+            class="fade-up inline-flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold tracking-wide uppercase mb-8"
+            style="background-color: #e8f0f0; color: #0d5c63"
+          >
+            <i data-lucide="sparkles" style="width: 14px; height: 14px"></i> <span>Curso abierto · 2026</span>
+          </div>
+          <h1
+            id="hero-title"
+            class="fade-up stagger-1 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight mb-6"
+            style="font-family: 'Fraunces', serif; color: #1a1a2e"
+          >
+            Ética en Inteligencia<br />Artificial
+          </h1>
+          <p
+            id="hero-subtitle"
+            class="fade-up stagger-2 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
+            style="color: #5a5a7a"
+          >
+            Explorando los desafíos éticos de la era algorítmica: sesgo, privacidad, transparencia y el futuro de la
+            convivencia entre humanos y máquinas.
+          </p>
+          <div class="fade-up stagger-3 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button
+              id="hero-cta"
+              class="group px-8 py-4 rounded-full font-semibold text-base transition-all hover:scale-105 flex items-center gap-2"
+              style="background-color: #0d5c63; color: #fafaf7"
+            >
+              <span>Explorar módulos</span>
+              <i
+                data-lucide="arrow-down-right"
+                style="width: 18px; height: 18px"
+                class="transition-transform group-hover:translate-x-0.5 group-hover:translate-y-0.5"
+              ></i>
+            </button>
+            <button class="px-8 py-4 rounded-full font-semibold text-base border-2" style="border-color: #1a1a2e; color: #1a1a2e">
+              Ver programa
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <div class="overflow-hidden py-6 border-y" style="border-color: #e0e0d8">
+        <div class="marquee-track text-sm font-medium uppercase tracking-widest" style="color: #5a5a7a">
+          <span>Sesgo Algorítmico</span><span>·</span><span>Privacidad de Datos</span><span>·</span><span>IA Generativa</span><span>·</span><span>Regulación</span><span>·</span><span>Transparencia</span><span>·</span><span>Derechos Digitales</span><span>·</span><span>Gobernanza</span>
+        </div>
+      </div>
+
+      <section id="modulos" class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-14">
+            <div>
+              <span class="text-xs font-semibold uppercase tracking-widest" style="color: #0d5c63">Programa</span>
+              <h2 id="modules-heading" class="text-3xl md:text-4xl font-bold mt-2" style="font-family: 'Fraunces', serif">
+                Módulos del curso
+              </h2>
+            </div>
+            <p class="text-sm max-w-md" style="color: #5a5a7a">
+              Cada módulo combina lecturas, casos de estudio, debates y ejercicios prácticos para una comprensión profunda.
+            </p>
+          </div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5" id="modules-grid"></div>
+        </div>
+      </section>
+
+      <section id="recursos" class="py-20 px-6">
+        <div class="max-w-7xl mx-auto">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-14">
+            <div>
+              <span class="text-xs font-semibold uppercase tracking-widest" style="color: #0d5c63">Biblioteca</span>
+              <h2 id="resources-heading" class="text-3xl md:text-4xl font-bold mt-2" style="font-family: 'Fraunces', serif">
+                Recursos destacados
+              </h2>
+            </div>
+          </div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="resources-grid"></div>
+        </div>
+      </section>
+
+      <section id="comunidad" class="py-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+          <span class="text-xs font-semibold uppercase tracking-widest" style="color: #0d5c63">Comunidad</span>
+          <h2 class="text-3xl md:text-4xl font-bold mt-3 mb-6" style="font-family: 'Fraunces', serif">Únete a la conversación</h2>
+          <p class="text-base max-w-xl mx-auto mb-10" style="color: #5a5a7a">
+            Forma parte de una comunidad de académicos, profesionales y estudiantes comprometidos con el desarrollo ético de la inteligencia artificial.
+          </p>
+          <form id="newsletter-form" class="flex flex-col sm:flex-row items-center gap-3 max-w-lg mx-auto">
+            <label for="email-input" class="sr-only">Correo electrónico</label>
+            <input
+              id="email-input"
+              type="email"
+              placeholder="tu@correo.com"
+              class="flex-1 w-full px-5 py-3.5 rounded-full border text-sm focus:outline-none focus:ring-2"
+              style="border-color: #e0e0d8; background: #fff"
+            />
+            <button type="submit" class="px-7 py-3.5 rounded-full font-semibold text-sm whitespace-nowrap" style="background-color: #0d5c63; color: #fafaf7">
+              Suscribirse
+            </button>
+          </form>
+          <p id="newsletter-msg" class="text-sm mt-3 hidden" style="color: #0d5c63"></p>
+        </div>
+      </section>
+
+      <footer class="py-12 px-6 border-t" style="border-color: #e0e0d8">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+          <div class="flex items-center gap-3">
+            <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background-color: #0d5c63">
+              <i data-lucide="brain" style="width: 16px; height: 16px; color: #fafaf7"></i>
+            </div>
+            <span id="footer-text" class="text-sm" style="color: #5a5a7a">© 2026 Ética en IA · Contenido de acceso libre</span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      const modules = [
+        { num: '01', title: 'Fundamentos de la Ética en IA', desc: 'Principios filosóficos y marcos éticos aplicados a sistemas inteligentes.', icon: 'book-open', tag: 'Fundamentos', color: '#0D5C63', href: 'modules/modulo-1.html' },
+        { num: '02', title: 'Sesgo y Equidad Algorítmica', desc: 'Identificación y mitigación de sesgos en modelos de aprendizaje automático.', icon: 'scale', tag: 'Equidad', color: '#7C6B4F', href: 'modules/modulo-2.html' },
+        { num: '03', title: 'Privacidad y Protección de Datos', desc: 'Marcos regulatorios y técnicas de preservación de la privacidad.', icon: 'shield', tag: 'Privacidad', color: '#4A6741', href: 'modules/modulo-3.html' },
+        { num: '04', title: 'Transparencia y Explicabilidad', desc: 'Métodos para hacer comprensibles las decisiones algorítmicas.', icon: 'eye', tag: 'Transparencia', color: '#8B5E3C', href: 'modules/modulo-4.html' }
+      ];
+
+      const resources = [
+        { type: 'Infografía', title: 'Mapa global de regulación en IA', desc: 'Un recorrido visual por las leyes y marcos éticos en más de 30 países.', icon: 'map', read: '5 min', href: 'resources/mapa-global-regulacion-ia.html' },
+        { type: 'Podcast', title: 'Voces de la ética algorítmica', desc: 'Entrevistas con investigadores líderes sobre sesgo, equidad y transparencia.', icon: 'headphones', read: '45 min' },
+        { type: 'Guía práctica', title: 'Auditoría ética de modelos de ML', desc: 'Herramientas y frameworks para evaluar el impacto ético de tus modelos.', icon: 'clipboard-check', read: '20 min' }
+      ];
+
+      const mGrid = document.getElementById('modules-grid');
+      modules.forEach((m, i) => {
+        const card = document.createElement('a');
+        card.href = m.href;
+        card.className = 'card-hover rounded-2xl p-6 flex flex-col fade-up stagger-' + Math.min(i + 1, 6);
+        card.style.background = '#FFFFFF';
+        card.innerHTML = `
+          <div class="flex items-center justify-between mb-5">
+            <span class="text-xs font-bold tracking-wider" style="color:${m.color};">${m.num}</span>
+            <span class="tag-pill px-3 py-1 rounded-full text-xs font-medium" style="background:${m.color}15;color:${m.color};">${m.tag}</span>
+          </div>
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:${m.color}12;">
+            <i data-lucide="${m.icon}" style="width:20px;height:20px;color:${m.color};"></i>
+          </div>
+          <h3 class="font-bold text-base mb-2 leading-snug" style="font-family:'Fraunces',serif;">${m.title}</h3>
+          <p class="text-sm leading-relaxed flex-1" style="color:#5A5A7A;">${m.desc}</p>
+          <span class="mt-4 inline-flex items-center gap-1 text-xs font-semibold" style="color:${m.color};">Ver subpágina <i data-lucide="arrow-up-right" style="width:13px;height:13px;"></i></span>
+        `;
+        mGrid.appendChild(card);
+      });
+
+      const rGrid = document.getElementById('resources-grid');
+      resources.forEach((r, i) => {
+        const card = document.createElement(r.href ? 'a' : 'div');
+        if (r.href) card.href = r.href;
+        card.className = 'card-hover rounded-2xl p-6 flex flex-col fade-up stagger-' + Math.min(i + 1, 6);
+        card.style.background = '#FFFFFF';
+        card.innerHTML = `
+          <div class="flex items-center justify-between mb-4">
+            <span class="px-3 py-1 rounded-full text-xs font-semibold" style="background:#E8F0F0;color:#0D5C63;">${r.type}</span>
+            <span class="text-xs" style="color:#5A5A7A;"><i data-lucide="clock" style="width:12px;height:12px;display:inline;vertical-align:-2px;"></i> ${r.read}</span>
+          </div>
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-3" style="background:#0D5C6310;">
+            <i data-lucide="${r.icon}" style="width:20px;height:20px;color:#0D5C63;"></i>
+          </div>
+          <h3 class="font-bold text-base mb-2 leading-snug" style="font-family:'Fraunces',serif;">${r.title}</h3>
+          <p class="text-sm leading-relaxed flex-1" style="color:#5A5A7A;">${r.desc}</p>
+          ${r.href ? '<span class="mt-4 inline-flex items-center gap-1 text-xs font-semibold" style="color:#0D5C63;">Ver infografía <i data-lucide="arrow-up-right" style="width:13px;height:13px;"></i></span>' : ''}
+        `;
+        rGrid.appendChild(card);
+      });
+
+      lucide.createIcons();
+
+      document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+      });
+
+      const nav = document.getElementById('main-nav');
+      document.getElementById('app-wrapper').addEventListener('scroll', function () {
+        if (this.scrollTop > 40) {
+          nav.style.background = 'rgba(250,250,247,0.95)';
+          nav.style.boxShadow = '0 1px 12px rgba(0,0,0,0.06)';
+        } else {
+          nav.style.background = 'transparent';
+          nav.style.boxShadow = 'none';
+        }
+      });
+
+      document.getElementById('newsletter-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+        const msg = document.getElementById('newsletter-msg');
+        msg.textContent = '¡Gracias! Te mantendremos informado sobre el curso.';
+        msg.classList.remove('hidden');
+        this.reset();
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) target.scrollIntoView({ behavior: 'smooth' });
+          document.getElementById('mobile-menu').classList.add('hidden');
+        });
+      });
+    </script>
+  </body>
+</html>
