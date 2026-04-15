@@ -9,7 +9,7 @@ Landing page estática en español para promocionar un curso de Ética en Inteli
 ├── index.html
 ├── assets
 │   ├── css
-│   │   └── styles.css
+│   │   └── .gitkeep
 │   ├── icons
 │   │   └── .gitkeep
 │   ├── img
